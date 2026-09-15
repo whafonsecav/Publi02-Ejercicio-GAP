@@ -221,7 +221,23 @@ Blue confirma que la paleta **se diseñó hacia atrás**: primero se fijó la fo
 
 | Decisión | Detalle | Fuente |
 |---|---|---|
-| **36 personas, un solo material** | Todo el reparto en denim (con caqui como contrapunto) | [FICHA] |
+| **36 personas, dos vestuarios** | Las seis de KATSEYE van de **denim azul**; los 30 bailarines van de **negro, café y oliva** | [REVISADO FOTOGRAMA A FOTOGRAMA] |
+
+> ### ⚠ Corrección tras revisar la pieza imagen por imagen
+>
+> Una primera versión de este documento decía que **todo el reparto iba de denim** y que el vestuario
+> **repartía estatus en vez de concentrarlo**. Al extraer y mirar los fotogramas, las dos cosas resultaron
+> falsas, y la lectura correcta es más útil para el posicionamiento:
+>
+> - **El denim lo llevan solo las seis protagonistas.** Los treinta bailarines van de negro, café y oliva.
+>   Sobre un ciclorama blanco, **la prenda del anuncio es literalmente lo único que tiene color en la sala**:
+>   el producto es lo que te hace visible. Ese es el argumento de venta puesto en escena.
+> - **Las seis están siempre al frente, al centro o en primer plano.** Encabezan las formaciones en V,
+>   ocupan el centro de la espiral cenital y se llevan todos los planos cortos. La pieza **no** trata de que
+>   todos sean iguales: el conjunto de atrás es el **contraste** que hace notar a quien lleva denim.
+> - **Lo que sí se sostiene** es que las seis llevan **la misma tela de seis maneras distintas** —corsé,
+>   minifalda, chaqueta, tirantes, bota campana, pantalón ancho—. Ahí está, demostrado y no dicho,
+>   el «tú lo defines» de la campaña.
 | **KATSEYE con looks propios y a medida** | Gap decidió desde el inicio que las seis irían en outfits personalizados, distintos del cuerpo de baile | [FUENTE] |
 | **Un único cambio de vestuario en todo el rodaje** | Excepcional para una producción de 36 personas | [FUENTE] |
 | **Todos los tiros y todas las piernas** | Low, mid y high rise; de skinny a baggy, más wide, barrel y horseshoe | [FUENTE] |
@@ -233,7 +249,7 @@ Blue confirma que la paleta **se diseñó hacia atrás**: primero se fijó la fo
 
 **La decisión de vestuario más importante es la que no se ve:** el denim **no está estilizado como moda editorial**. Está usado como **ropa de trabajo de un bailarín**. Cuatro semanas de ensayo diario y 91 segundos de coreografía de cuatro disciplinas son la prueba de producto: si aguanta eso, aguanta el día de cualquiera.
 
-**Y la segunda más importante:** KATSEYE lleva looks personalizados, pero **no lleva looks mejores**. Nadie viste "de protagonista". El vestuario reparte estatus, no lo concentra — y lo hace con una estructura que un espectador descifró solo: **tres parejas con tres siluetas distintas** (flare, falda, baggy). Es la misma lógica del reparto de cámara aplicada al surtido: el catálogo entero visible, ninguna pieza jerarquizada sobre otra.
+**Y la segunda más importante (corregida):** KATSEYE lleva looks personalizados **y además los únicos en denim**. El vestuario **sí concentra el estatus**, y esa es justamente la jugada: la prenda es la marca de quien destaca — y lo hace con una estructura que un espectador descifró solo: **tres parejas con tres siluetas distintas** (flare, falda, baggy). Es la misma lógica del reparto de cámara aplicada al surtido: el catálogo entero visible, ninguna pieza jerarquizada sobre otra.
 
 **Nota de fricción (por rigor):** un grupo muy minoritario de comentarios —con muy poca validación— cuestiona el nivel de exposición corporal del vestuario Y2K (tiro bajo, top corto, minifalda). Es la única tensión real detectada entre la dirección de vestuario y una parte de la audiencia. Ver documento `05`, §4.10.
 
@@ -370,7 +386,7 @@ Madison Alvarado · Jaiden Anthony · Hezekiah Anthony · Kyndall Ash · Fatou B
 Ningún plano dice "estos jeans son cómodos". Noventa y un segundos de coreografía de seis disciplinas lo prueban. El público lo verbalizó solo: *"el hecho de que el denim sea lo bastante cómodo y flexible para aguantar una coreografía es gran marketing"*. **[AUDIENCIA]**
 
 **2. La diversidad está en la arquitectura, no en el discurso.**
-No hay una línea que diga "celebramos la diversidad". Hay una canción hecha de cinco geografías, un reparto hecho de seis, seis tradiciones de danza y 36 personas con tiempo repartido en partes iguales. **La diferencia entre decir y estar hecho de eso es toda la diferencia.**
+No hay una línea que diga "celebramos la diversidad". Hay una canción hecha de cinco geografías, un reparto hecho de seis, seis tradiciones de danza y 36 personas en pantalla, aunque el tiempo no se reparta por igual: las seis encabezan casi todos los planos. **La diferencia entre decir y estar hecho de eso es toda la diferencia.**
 
 **3. La nostalgia es propia, no prestada.**
 La canción es de 2003, el jean es de 2003 y el formato —gente bailando una canción vieja con ropa básica— es de 1998. Gap no imitó una tendencia: **volvió a su propio archivo**, como dijo su director creativo, *"de una forma que es nuestra"*.

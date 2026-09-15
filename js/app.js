@@ -27,6 +27,19 @@
   }
   fit();
   window.addEventListener('resize', fit);
+
+  /* ── Rueda del raton: un gesto = una lamina ───────── */
+  var ruedaFija = false, ruedaT = null;
+  deck.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    if (ruedaT) clearTimeout(ruedaT);
+    if (!ruedaFija && Math.abs(e.deltaY) > 4) {
+      ruedaFija = true;
+      go(cur + (e.deltaY > 0 ? 1 : -1));
+    }
+    /* el candado se suelta cuando la rueda lleva un rato quieta */
+    ruedaT = setTimeout(function () { ruedaFija = false; }, 280);
+  }, { passive: false });
   window.addEventListener('orientationchange', function () { setTimeout(fit, 120); });
 
   /* ── Decorado ───────────────────────────────────────────── */
@@ -344,7 +357,7 @@
       e: 'Toda la campaña existe para relanzar el tiro bajo. Gap rediseñó la pretina del Long &amp; Lean justamente para que no se caiga.' },
     denim: { t: 'Elaborado en denim', k: 'atr', ic: 'i-fabric',
       j: 'Es el <b>material físico y tangible</b> del que está hecho el producto: algodón tejido en sarga y teñido con índigo.',
-      e: 'Las 36 personas del video llevan el mismo material. Es lo único que todos comparten en pantalla.' },
+      e: 'Las seis protagonistas van de denim; los 30 bailarines, de negro, café y oliva. <b>El denim es justamente lo que las separa del fondo.</b>' },
     colores: { t: 'Colores fríos y sepias', k: 'atr', ic: 'i-palette',
       j: 'Es el <b>color con el que sale la tela de la fábrica</b>: los azules fríos que da el teñido de índigo y los cafés claros del caqui. No es una preferencia de gusto: es el tono del material.',
       e: 'Gap relanzó el Long &amp; Lean en <b>diez tonos distintos</b>, del azul casi blanco al azul casi negro. En el video se ven todos: esa gama es la paleta de la pieza.' },
@@ -382,7 +395,7 @@
     durabilidad: { t: 'Durabilidad', k: 'ben', ic: 'i-shield',
       j: 'Es <b>lo que t\u00fa ganas</b> con los materiales y la costura: una prenda que aguanta el uso diario sin deformarse ni perder el color. El atributo es el algod\u00f3n; el beneficio es <b>que no tengas que volver a comprarlo</b>.',
       n: 'Necesidad que resuelve: \u00abquiero comprar una vez y que me dure, no repetir la compra cada temporada\u00bb.',
-      e: 'En el video, 36 personas bailan en denim durante 91 segundos y ninguna prenda se ve deformada ni fuera de sitio.' },
+      e: 'Las prendas aguantan 91 segundos de coreografía continua sin deformarse ni salirse de sitio.' },
 
     /* ─ CREENCIAS Y VALORES ─ */
     genera: { t: 'Uniendo generaciones', k: 'cre', ic: 'i-bridge',
@@ -402,7 +415,7 @@
       e: 'Es la primera línea del anuncio: <b>«This is denim as you define it»</b> — esto es denim como tú lo definas.' },
     lienzo: { t: 'El jean como lienzo del estilo personal', k: 'cre', ic: 'i-palette',
       j: 'Es <b>cómo la marca entiende su producto</b>: el jean sale igual para todos y por sí solo no significa nada. <b>El significado lo pone quien se lo pone</b> —con qué lo combina, cómo lo lleva, con qué actitud—. Por eso la marca lo llama un lienzo: está en blanco hasta que alguien lo usa.',
-      e: 'La directora de marketing de Gap lo dijo con esas palabras: <b>«un par de jeans puede ser un lienzo para el estilo personal»</b>. En el video las 36 personas llevan el mismo material y ninguna se ve igual a otra.' }
+      e: 'La directora de marketing de Gap lo dijo con esas palabras: <b>«un par de jeans puede ser un lienzo para el estilo personal»</b>. En el video, las seis llevan la misma tela y ninguna se ve igual a otra: corsé, minifalda, chaqueta, tirantes, bota campana y pantalón ancho.' }
   };
 
   var elBody   = document.getElementById('elBody');
