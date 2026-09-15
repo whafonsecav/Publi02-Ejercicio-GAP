@@ -14,7 +14,7 @@ Doble clic en **`index.html`**. Los dos videos están **dentro de la carpeta**, 
 |---|---|---|
 | **01** | **Portada** | Institución, asignatura, marca e integrantes |
 | **02** | **¿Qué es GAP?** | Qué vende · de dónde viene · qué significa el nombre · con quién compite. Más la línea de tiempo animada de cinco hitos |
-| **03** | **Los dos videos** | 2003 a la izquierda (marco rosado), 2025 a la derecha (marco verde). En cada cuadro: el video, su ficha técnica al lado, quiénes lo hicieron, el mensaje, y un botón que abre el análisis completo. Abajo, por qué apareció el anuncio justo en agosto de 2025 |
+| **03** | **Los dos videos** | 2003 a la izquierda (marco rosado), 2025 a la derecha (marco verde), **del mismo alto**. En cada cuadro: el video, al lado lo que dice esa pieza, y debajo **las conexiones con la marca** —cinco en el de 2003, cuatro en el de 2025—. El botón del pie abre la **ficha técnica**: quién dirigió, quién es Kelis y qué es el R&B, de dónde salió KATSEYE, premios y cifras. Abajo de todo, cómo se juntan las dos |
 | **04** | **Atributos · Beneficios · Creencias** | **Seis de cada uno.** Cada tarjeta trae una frase que lo explica; al tocarla se abre la ficha completa |
 | **05** | **Frase de posicionamiento** | La frase citada, escribiéndose en tiempo real (unos 11 segundos). La firma va dentro de la cita |
 | **06** | **Cierre** | Gracias |
@@ -26,7 +26,7 @@ Doble clic en **`index.html`**. Los dos videos están **dentro de la carpeta**, 
 | Avanzar / retroceder | **← →** o **↑ ↓**, barra espaciadora, o **‹ ›** del pie |
 | Ir a una lámina | Clic en las rayas de la barra inferior |
 | **Reproducir un video** | Clic en el botón redondo. Aparecen los controles: volumen, barra de avance y **pantalla completa** |
-| **Ver el análisis de un video** | Botón «Ver el análisis completo» debajo de cada uno |
+| **Ver la ficha técnica de un video** | Botón «Ficha técnica y datos» debajo de cada uno |
 | **Ver una ficha** | Clic en cualquier elemento de la lámina 4 |
 | Saltar o repetir la frase | Clic sobre la frase de la lámina 5 |
 | Cerrar una ficha | **Esc**, la **✕**, o clic afuera |
