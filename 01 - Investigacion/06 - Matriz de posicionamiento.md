@@ -82,6 +82,11 @@ La definición del profesor trae **tres categorías**, y conviene separarlas por
 | «Me da pereza gastar cada temporada» | **Dura años y además mejora** | Sarga 3×1 + resistencia a la abrasión + envejecimiento |
 | «Odio pelear con el jean para ponérmelo» | **Se pone sin esfuerzo** | Pretina reingeniada + elasticidad |
 
+> **Nota para la sustentación.** El cuadro original traía seis atributos, **cinco** beneficios y seis creencias.
+> El que faltaba es **Durabilidad**, y sale de esta misma tabla: los atributos «Materiales de buena calidad»
+> y «Flexible y resistente» no tenían ningún beneficio enganchado, y el beneficio que se desprende de ellos
+> es justamente que la prenda te dure. Con eso la matriz queda **6 · 6 · 6**.
+
 ## 2.2 Emocionales — cómo me hace sentir
 
 | La necesidad | El beneficio |

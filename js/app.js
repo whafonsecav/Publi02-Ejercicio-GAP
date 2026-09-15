@@ -160,6 +160,7 @@
     slides[i].classList.add('on');
     slides[i].querySelectorAll('[data-count]').forEach(count);
     runTypewriters(slides[i]);
+    pauseHidden(slides[i]);
     setActive(i);
   }
   function count(el) {
@@ -256,6 +257,24 @@
     car.__go(0);
   });
 
+  /* ── Reproductores de video ()───────────────── */
+  document.querySelectorAll('.vp').forEach(function (wrap) {
+    var v = wrap.querySelector('video'), b = wrap.querySelector('.pbtn');
+    if (!v || !b) return;
+    b.addEventListener('click', function () { v.controls = true; v.play(); });
+    v.addEventListener('play', function () {
+      wrap.classList.add('playing'); v.controls = true;
+      /* que no suenen los dos a la vez */
+      document.querySelectorAll('.vp video').forEach(function (o) { if (o !== v) o.pause(); });
+    });
+  });
+  /* al cambiar de lamina, se pausa lo que este sonando */
+  function pauseHidden(slide) {
+    document.querySelectorAll('.vp video').forEach(function (v) {
+      if (!slide || !slide.contains(v)) v.pause();
+    });
+  }
+
   /* ── Modales ────────────────────────────────────────────── */
   function openModal(id) {
     var m = document.getElementById(id); if (!m) return;
@@ -323,6 +342,11 @@
       j: 'El ritmo y la coreografía exigen mucha energía. El beneficio emocional para quien compra la prenda es <b>contagiarse de ese dinamismo</b>: sentirse joven, activo y en movimiento.',
       n: 'Necesidad que resuelve: «quiero sentirme con energía, no pesado».',
       e: '91 segundos de baile sin conflicto, sin drama y sin una sola palabra.' },
+
+    durabilidad: { t: 'Durabilidad', k: 'ben', ic: 'i-shield',
+      j: 'Es <b>lo que t\u00fa ganas</b> con los materiales y la costura: una prenda que aguanta el uso diario sin deformarse ni perder el color. El atributo es el algod\u00f3n; el beneficio es <b>que no tengas que volver a comprarlo</b>.',
+      n: 'Necesidad que resuelve: \u00abquiero comprar una vez y que me dure, no repetir la compra cada temporada\u00bb.',
+      e: 'En el video, 36 personas bailan en denim durante 91 segundos y ninguna prenda se ve deformada ni fuera de sitio.' },
 
     /* ─ CREENCIAS Y VALORES ─ */
     genera: { t: 'Uniendo generaciones', k: 'cre', ic: 'i-bridge',

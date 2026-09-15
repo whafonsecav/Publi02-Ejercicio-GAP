@@ -15,7 +15,8 @@ tres niveles vistos en clase: **atributos → beneficios → creencias y valores
 
 | | |
 |---|---|
-| `index.html`, `css/`, `js/`, `assets/` | La presentación. Seis láminas, cada una un lienzo fijo de 1600 × 900 px |
+| `index.html`, `css/`, `js/` | La presentación. Seis láminas, cada una un lienzo fijo de 1600 × 900 px |
+| `assets/video/` | Los dos videos —el anuncio de 2025 y «Milkshake» de 2003— en 720p, para que se reproduzcan dentro de la página |
 | [`LEEME.md`](LEEME.md) | Cómo se navega, qué hay en cada lámina y de dónde sale el diseño |
 | [`01 - Investigacion/`](01%20-%20Investigacion/) | El respaldo: la marca, la campaña, el análisis del video, el de los comentarios, la matriz y las fuentes |
 
@@ -23,8 +24,8 @@ tres niveles vistos en clase: **atributos → beneficios → creencias y valores
 
 1. Portada
 2. **¿Qué es GAP?** — qué vende, de dónde viene, qué significa el nombre, con quién compite
-3. **La canción y el grupo** — 2003 a la izquierda, 2025 a la derecha
-4. **Atributos · Beneficios · Creencias** — 17 elementos; cada uno abre su justificación
+3. **Los dos videos** — 2003 a la izquierda, 2025 a la derecha, con ficha técnica y análisis de cada uno
+4. **Atributos · Beneficios · Creencias** — seis de cada uno; cada uno abre su justificación
 5. **La frase de posicionamiento**
 6. Cierre
 
