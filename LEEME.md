@@ -49,7 +49,9 @@ El video se pausa solo al cerrar la ventana o al cambiar de lámina.
 
 ## Los datos de la lámina 3, por si preguntan
 
-**American Eagle y Sydney Sweeney.** El 23 de julio de 2025 American Eagle lanzó *«Sydney Sweeney has great jeans»*. En inglés *jeans* y *genes* suenan igual, y con una actriz rubia de ojos azules el chiste se leyó como un guiño a la **eugenesia**. GAP estrenó «Better in Denim» **27 días después**, el 19 de agosto. Gap negó que fuera una respuesta. Ojo con el matiz: **lo criticado fue el anuncio, no la actriz** — ella no dijo nada xenófobo.
+**En celular y tableta.** Se ve **exactamente igual** que en el computador, solo más pequeño: la lámina entera es un lienzo fijo que se encoge para caber en la pantalla, así que nada se reacomoda ni se corta y no hay que hacer scroll. Si el teléfono está en vertical, la presentación **se gira sola** para obligar a verla horizontal; al girar el teléfono queda derecha. Los modales y los videos funcionan igual.
+
+**American Eagle y Sydney Sweeney.** El 23 de julio de 2025 American Eagle lanzó *«Sydney Sweeney has great jeans»*. En inglés *jeans* y *genes* suenan igual, y con una actriz rubia de ojos azules el chiste se leyó como un guiño a la **eugenesia** —la idea de «mejorar» la raza humana seleccionando quién se reproduce, asociada al nazismo— el chiste se leyó como un guiño a la **eugenesia**. GAP estrenó «Better in Denim» **27 días después**, el 19 de agosto. Gap negó que fuera una respuesta. Ojo con el matiz: **lo criticado fue el anuncio, no la actriz** — ella no dijo nada xenófobo.
 
 **Quién hizo qué.** El anuncio lo dirigió **Bethany Vargas**, lo fotografió **Bjorn Iooss** y lo coreografió **Robbie Blue**, con 6 integrantes de KATSEYE y **30 bailarines** más. El video de «Milkshake» lo dirigió **Jake Nava**, el mismo de «Crazy in Love» y «Single Ladies» de Beyoncé.
 

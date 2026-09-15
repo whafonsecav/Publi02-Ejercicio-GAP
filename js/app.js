@@ -16,12 +16,18 @@
   var scrim = document.getElementById('scrim');
   var cur = -1, total = slides.length, openM = null;
 
+  var fitBox = document.getElementById('fit');
+  var NAVH = 56, HH = H + NAVH;
   function fit() {
-    var b = deck.getBoundingClientRect();
-    document.documentElement.style.setProperty('--k', Math.min(b.width / W, b.height / H));
+    /* clientWidth/Height dan la caja l\u00f3gica, sin contar el giro en vertical */
+    var w = fitBox ? fitBox.clientWidth  : window.innerWidth;
+    var t = fitBox ? fitBox.clientHeight : window.innerHeight;
+    document.documentElement.style.setProperty('--k', Math.min(w / W, t / HH));
     document.querySelectorAll('[data-car]').forEach(function (c) { if (c.__go) c.__go(c.__i); });
   }
-  fit(); window.addEventListener('resize', fit);
+  fit();
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', function () { setTimeout(fit, 120); });
 
   /* ── Decorado ───────────────────────────────────────────── */
   var WASH = ['#0D1B33','#16294A','#20395E','#2E4E7B','#4067A0','#5E85BE','#8FAED6','#BCD0E8','#CBFF3D','#FF5C93'];
