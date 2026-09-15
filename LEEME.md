@@ -25,13 +25,13 @@ Doble clic en **`index.html`**. Los dos videos están **dentro de la carpeta**, 
 |---|---|
 | Avanzar / retroceder | **← →** o **↑ ↓**, barra espaciadora, o **‹ ›** del pie |
 | Ir a una lámina | Clic en las rayas de la barra inferior |
-| **Reproducir un video** | Clic en el botón redondo. Aparecen los controles: volumen, barra de avance y **pantalla completa** |
+| **Reproducir un video** | Clic en la carátula: se abre **en grande, en una ventana**, con volumen, barra de avance y pantalla completa |
 | **Ver la ficha técnica de un video** | Botón «Ficha técnica y datos» debajo de cada uno |
-| **Ver una ficha** | Clic en cualquier elemento de la lámina 4 |
+| **Ver una ficha** | Clic en cualquier elemento de la lámina 4. Dentro se pasa de uno a otro con **‹ Anterior / Siguiente ›** o con las flechas del teclado; el color cambia solo al pasar de un grupo al siguiente |
 | Saltar o repetir la frase | Clic sobre la frase de la lámina 5 |
 | Cerrar una ficha | **Esc**, la **✕**, o clic afuera |
 
-Los dos videos **no suenan a la vez**: al darle play a uno, el otro se pausa. Al cambiar de lámina se pausan los dos.
+El video se pausa solo al cerrar la ventana o al cambiar de lámina.
 
 ## Exportar a PDF
 

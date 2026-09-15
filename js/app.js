@@ -203,6 +203,9 @@
       return;
     }
     var k = e.key;
+    if (openM && openM.id === 'm-el' && (k === 'ArrowRight' || k === 'ArrowLeft')) {
+      e.preventDefault(); renderEl(elIdx + (k === 'ArrowRight' ? 1 : -1)); return;
+    }
     if (k === 'ArrowDown' || k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); go(cur + 1); }
     else if (k === 'ArrowUp' || k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); go(cur - 1); }
     else if (k === 'Home') { e.preventDefault(); go(0); }
@@ -258,22 +261,19 @@
   });
 
   /* ── Reproductores de video ()───────────────── */
+  var pv = document.getElementById('pvVideo');
   document.querySelectorAll('.vp').forEach(function (wrap) {
-    var v = wrap.querySelector('video'), b = wrap.querySelector('.pbtn');
-    if (!v || !b) return;
-    b.addEventListener('click', function () { v.controls = true; v.play(); });
-    v.addEventListener('play', function () {
-      wrap.classList.add('playing'); v.controls = true;
-      /* que no suenen los dos a la vez */
-      document.querySelectorAll('.vp video').forEach(function (o) { if (o !== v) o.pause(); });
+    wrap.addEventListener('click', function () {
+      if (!pv) return;
+      document.getElementById('pvTitle').innerHTML = wrap.dataset.title || 'Video';
+      document.getElementById('pvSub').textContent = wrap.dataset.sub || '';
+      if (pv.getAttribute('src') !== wrap.dataset.src) pv.setAttribute('src', wrap.dataset.src);
+      openModal('m-play');
+      pv.currentTime = 0;
+      var p = pv.play(); if (p && p.catch) p.catch(function () {});
     });
   });
-  /* al cambiar de lamina, se pausa lo que este sonando */
-  function pauseHidden(slide) {
-    document.querySelectorAll('.vp video').forEach(function (v) {
-      if (!slide || !slide.contains(v)) v.pause();
-    });
-  }
+  function pauseHidden(slide) { if (pv) pv.pause(); }
 
   /* ── Modales ────────────────────────────────────────────── */
   function openModal(id) {
@@ -285,6 +285,7 @@
   }
   function closeM() {
     if (!openM) return;
+    var v = document.getElementById('pvVideo'); if (v) v.pause();
     openM.classList.remove('on'); scrim.classList.remove('on'); openM = null;
   }
   document.querySelectorAll('[data-modal]').forEach(function (el) {
@@ -311,8 +312,8 @@
       j: 'Es el <b>material físico y tangible</b> del que está hecho el producto: algodón tejido en sarga y teñido con índigo.',
       e: 'Las 36 personas del video llevan el mismo material. Es lo único que todos comparten en pantalla.' },
     colores: { t: 'Colores fríos y sepias', k: 'atr', ic: 'i-palette',
-      j: 'En el producto son <b>los lavados reales de la tela</b>: los azules fríos del índigo y el sepia del caqui. No es gusto: es el color que sale de fábrica.',
-      e: 'El relanzamiento trajo <b>10 lavados de temporada</b>. Esos diez azules son, literalmente, la paleta del video.' },
+      j: 'Es el <b>color con el que sale la tela de la fábrica</b>: los azules fríos que da el teñido de índigo y los cafés claros del caqui. No es una preferencia de gusto: es el tono del material.',
+      e: 'Gap relanzó el Long &amp; Lean en <b>diez tonos distintos</b>, del azul casi blanco al azul casi negro. En el video se ven todos: esa gama es la paleta de la pieza.' },
     variedad: { t: 'Variedad de prendas', k: 'atr', ic: 'i-layers',
       j: 'Es la <b>amplitud del catálogo</b>: jean, falda, top, chaleco y caqui, en todos los tiros y todas las piernas. Es un atributo del surtido, no de una prenda sola.',
       e: 'El video muestra el catálogo completo en movimiento sin que ninguna prenda sea la protagonista.' },
@@ -329,8 +330,9 @@
       n: 'Necesidad que resuelve: «la ropa me estorba cuando me muevo».',
       e: 'Un comentario con 240 likes lo dice solo: «qué bien ver a alguien que no tiene que pelear para ponerse unos jeans».' },
     combinan: { t: 'Sus colores permiten combinar con todo', k: 'ben', ic: 'i-palette',
-      j: 'Es <b>la utilidad práctica</b> que el consumidor obtiene de la paleta: el azul y el sepia funcionan con cualquier otra prenda del clóset.',
-      n: 'Necesidad que resuelve: «no sé qué ponerme y no tengo tiempo».' },
+      j: 'Es <b>la utilidad práctica</b> que saca quien lo usa: tanto el azul del denim como el café del caqui son <b>tonos neutros</b>, así que no pelean con ninguna otra prenda del clóset.',
+      n: 'Necesidad que resuelve: «no sé qué ponerme y no tengo tiempo».',
+      e: 'En el video conviven los diez tonos a la vez y ninguno desentona con otro.' },
     versa: { t: 'Versatilidad', k: 'ben', ic: 'i-puzzle',
       j: 'Es el <b>resultado directo</b> de tener variedad de cortes y colores fáciles de combinar. Le simplifica la vida al usuario.',
       n: 'Necesidad que resuelve: «necesito una sola prenda que me sirva para estudiar, trabajar y salir».' },
@@ -339,9 +341,9 @@
       n: 'Necesidad que resuelve: «quiero sentirme parte de algo que reconozco».',
       e: 'Toda la pieza está armada con señales de esa época: la canción de 2003, el tiro bajo y el denim sobre denim.' },
     energia: { t: 'Vitalidad y energía', k: 'ben', ic: 'i-bolt',
-      j: 'El ritmo y la coreografía exigen mucha energía. El beneficio emocional para quien compra la prenda es <b>contagiarse de ese dinamismo</b>: sentirse joven, activo y en movimiento.',
-      n: 'Necesidad que resuelve: «quiero sentirme con energía, no pesado».',
-      e: '91 segundos de baile sin conflicto, sin drama y sin una sola palabra.' },
+      j: 'Es <b>lo que la prenda te hace sentir</b>. El anuncio son 91 segundos de baile sin parar, así que <b>asocia el jean con estar activo y en movimiento</b>, no con la quietud. Quien lo compra compra también esa imagen de sí mismo.',
+      n: 'Necesidad que resuelve: «quiero sentirme con energía, no pesado ni apagado».',
+      e: 'Nadie posa en la pieza: las 36 personas se mueven de principio a fin, sin una sola palabra.' },
 
     durabilidad: { t: 'Durabilidad', k: 'ben', ic: 'i-shield',
       j: 'Es <b>lo que t\u00fa ganas</b> con los materiales y la costura: una prenda que aguanta el uso diario sin deformarse ni perder el color. El atributo es el algod\u00f3n; el beneficio es <b>que no tengas que volver a comprarlo</b>.',
@@ -350,11 +352,11 @@
 
     /* ─ CREENCIAS Y VALORES ─ */
     genera: { t: 'Uniendo generaciones', k: 'cre', ic: 'i-bridge',
-      j: 'Es un <b>propósito o ideal</b> de la marca: su visión sobre el papel que quiere jugar en la sociedad.',
-      e: 'No es discurso vacío: el nombre «Gap» viene de <b>«generation gap»</b>, la brecha entre padres e hijos, y su propósito corporativo declarado es <b>«cerrar brechas»</b>.' },
+      j: 'Es un <b>propósito declarado</b> de la marca, y el anuncio conecta a dos públicos concretos: los <b>millennials</b>, que tenían veintipico cuando salió «Milkshake» en 2003, y la <b>generación Z</b>, que la descubrió en TikTok y sigue a KATSEYE.',
+      e: 'No es discurso vacío: el nombre «Gap» viene de <b>«generation gap»</b>, la brecha entre padres e hijos que veían sus fundadores en 1969.' },
     culturas: { t: 'Uniendo culturas / diversidad', k: 'cre', ic: 'i-globe',
-      j: 'Es la <b>postura ideológica y cultural</b> que la marca defiende en su comunicación.',
-      e: 'Seis integrantes de seis países + 30 bailarines acreditados con nombre. Y la canción está hecha de cinco geografías: Egipto, India, Brasil, Filipinas y Estados Unidos.' },
+      j: 'Es la <b>postura cultural</b> que la marca defiende. Y no se queda en las seis cantantes: los <b>30 bailarines</b> que las acompañan son de cuerpos, edades y orígenes distintos, y aparecen acreditados con nombre.',
+      e: 'La canción misma ya era una mezcla: Kelis es afroamericana, china y puertorriqueña, y la produjo un dúo del que <b>Chad Hugo es filipino</b>.' },
     losuyo: { t: 'Cada quien tiene lo suyo', k: 'cre', ic: 'i-spark',
       j: 'Es la <b>verdad humana (insight)</b> sobre la que la marca construye su filosofía para conectar con el público.',
       e: 'Sale de la propia canción: «lo mío es mejor que lo tuyo», puesto en boca de seis mujeres distintas, deja de ser presumir y se vuelve <b>«lo tuyo vale»</b>.' },
@@ -365,41 +367,66 @@
       j: 'Es una <b>declaración de principios</b>: un manifiesto sobre la relación entre la persona y el producto.',
       e: 'Es la primera línea del anuncio: <b>«This is denim as you define it»</b> — esto es denim como tú lo definas.' },
     lienzo: { t: 'El jean como lienzo del estilo personal', k: 'cre', ic: 'i-palette',
-      j: 'Es la <b>forma poética</b> en que la marca entiende su producto frente al consumidor: un soporte en blanco, no una prenda terminada.',
-      e: 'No es interpretación nuestra. La directora de marketing de Gap lo dijo textual: <b>«un par de jeans puede ser un lienzo para el estilo personal»</b>.' }
+      j: 'Es <b>cómo la marca entiende su producto</b>: el jean sale igual para todos y por sí solo no significa nada. <b>El significado lo pone quien se lo pone</b> —con qué lo combina, cómo lo lleva, con qué actitud—. Por eso la marca lo llama un lienzo: está en blanco hasta que alguien lo usa.',
+      e: 'La directora de marketing de Gap lo dijo con esas palabras: <b>«un par de jeans puede ser un lienzo para el estilo personal»</b>. En el video las 36 personas llevan el mismo material y ninguna se ve igual a otra.' }
   };
 
-  var elBody = document.getElementById('elBody');
+  var elBody   = document.getElementById('elBody');
   var elKicker = document.getElementById('elKicker');
-  document.querySelectorAll('[data-e]').forEach(function (node) {
-    node.addEventListener('click', function () {
-      var d = EL[node.dataset.e]; if (!d) return;
-      var c = CLASE[d.k];
-      elKicker.innerHTML = 'Clasificación: <span class="hl">' + c.n + '</span>';
-      var lv = [
-        { k: 'atr', c: 'g-fab', n: '1 · Atributo',  s: 'Lo que el producto ES' },
-        { k: 'ben', c: 'g-tec', n: '2 · Beneficio', s: 'Lo que TÚ ganas' },
-        { k: 'cre', c: 'g-int', n: '3 · Creencia',  s: 'En lo que la marca CREE' }
-      ];
-      var lad = '<div class="ladder">';
-      lv.forEach(function (x, ix) {
-        if (ix) lad += '<span class="ar">→</span>';
-        lad += '<div class="lv ' + x.c + (x.k === d.k ? ' act' : '') + '"><b>' + x.n + '</b><i>' + x.s + '</i></div>';
-      });
-      lad += '</div>';
+  var elSub    = document.getElementById('elSub');
+  var elPanel  = document.getElementById('elPanel');
+  var elPos    = document.getElementById('elPos');
+  var elGrupo  = document.getElementById('elGrupo');
+  var elNodes  = [].slice.call(document.querySelectorAll('[data-e]'));
+  var elKeys   = elNodes.map(function (n) { return n.dataset.e; });
+  var elIdx    = 0;
 
-      var h = lad + '<div class="ef-head ' + c.c + '">' +
-        '<span class="ring"><svg class="ic"><use href="#' + d.ic + '"/></svg></span>' +
-        '<div><span class="bdg">' + c.n + '</span><h4>' + d.t + '</h4></div></div>';
-      h += '<div class="ef-box"><div class="t ' + c.c + '"><svg class="ic"><use href="#i-key"/></svg> Por qué está en este grupo</div><p>' + d.j + '</p></div>';
-      if (d.n) {
-        h += '<div class="ef-box"><div class="t ' + c.c + '"><svg class="ic"><use href="#i-arrow"/></svg> La necesidad que resuelve</div><p>' + d.n + '</p></div>';
-      }
-      if (d.e) {
-        h += '<div class="ef-box"><div class="t ' + c.c + '"><svg class="ic"><use href="#i-eye"/></svg> Dónde se ve en la campaña</div><p>' + d.e + '</p></div>';
-      }
-      elBody.innerHTML = h;
-      openModal('m-el');
+  var LV = [
+    { k: 'atr', c: 'g-fab', n: '1 \u00b7 Atributo',  s: 'Lo que el producto ES' },
+    { k: 'ben', c: 'g-tec', n: '2 \u00b7 Beneficio', s: 'Lo que T\u00da ganas' },
+    { k: 'cre', c: 'g-int', n: '3 \u00b7 Creencia',  s: 'En lo que la marca CREE' }
+  ];
+
+  function renderEl(i) {
+    elIdx = (i + elKeys.length) % elKeys.length;
+    var d = EL[elKeys[elIdx]]; if (!d) return;
+    var c = CLASE[d.k];
+    var sub = elNodes[elIdx].querySelector('i');
+
+    elPanel.className = 'panel k-' + d.k;
+    elKicker.innerHTML = 'Clasificaci\u00f3n: <span class="hl">' + c.n + '</span>';
+    elSub.textContent = d.k === 'atr' ? 'Lo que el producto es'
+                      : d.k === 'ben' ? 'Lo que gana quien lo usa'
+                      : 'En lo que la marca cree';
+    elPos.textContent = (elIdx + 1);
+    elGrupo.textContent = d.k === 'atr' ? 'Atributos' : d.k === 'ben' ? 'Beneficios' : 'Creencias';
+
+    var lad = '<div class="ladder">';
+    LV.forEach(function (x, ix) {
+      if (ix) lad += '<span class="ar">\u2192</span>';
+      lad += '<div class="lv ' + x.c + (x.k === d.k ? ' act' : '') + '"><b>' + x.n + '</b><i>' + x.s + '</i></div>';
     });
+    lad += '</div>';
+
+    var head = '<div class="ef-head ' + c.c + '">' +
+      '<span class="ring"><svg class="ic"><use href="#' + d.ic + '"/></svg></span>' +
+      '<div><span class="bdg">' + c.n + '</span><h4>' + d.t + '</h4>' +
+      (sub ? '<p class="lede">' + sub.textContent + '</p>' : '') + '</div></div>';
+
+    var cols = '';
+    if (d.n) cols += '<div class="ef-box"><div class="t"><svg class="ic"><use href="#i-arrow"/></svg> La necesidad que resuelve</div><p>' + d.n + '</p></div>';
+    if (d.e) cols += '<div class="ef-box"><div class="t"><svg class="ic"><use href="#i-eye"/></svg> D\u00f3nde se ve en la campa\u00f1a</div><p>' + d.e + '</p></div>';
+    if (d.n && d.e) cols = '<div class="mcols">' + cols + '</div>';
+
+    elBody.innerHTML = lad + head +
+      '<div class="ef-box"><div class="t"><svg class="ic"><use href="#i-key"/></svg> Por qu\u00e9 est\u00e1 en este grupo</div><p>' + d.j + '</p></div>' + cols;
+    elBody.classList.remove('swap'); void elBody.offsetWidth; elBody.classList.add('swap');
+    elBody.scrollTop = 0;
+  }
+
+  elNodes.forEach(function (node, i) {
+    node.addEventListener('click', function () { renderEl(i); openModal('m-el'); });
   });
+  document.getElementById('elPrev').addEventListener('click', function () { renderEl(elIdx - 1); });
+  document.getElementById('elNext').addEventListener('click', function () { renderEl(elIdx + 1); });
 })();
