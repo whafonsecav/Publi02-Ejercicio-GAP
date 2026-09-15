@@ -152,9 +152,37 @@
     i = Math.max(0, Math.min(total - 1, i));
     deck.scrollTo({ top: i * deck.clientHeight, behavior: 'smooth' });
   }
+  /* ── Voz de la frase de posicionamiento ───────────── */
+  var voz = document.getElementById('voz'), vozT = null, vozEsperando = false;
+  function arrancarVoz() {
+    var p = voz.play();
+    if (p && p.catch) p.catch(function () {
+      /* algunos navegadores no dejan sonar nada hasta que alguien toque la pagina */
+      if (vozEsperando) return; vozEsperando = true;
+      var once = function () {
+        vozEsperando = false;
+        document.removeEventListener('pointerdown', once);
+        document.removeEventListener('keydown', once);
+        voz.play().catch(function () {});
+      };
+      document.addEventListener('pointerdown', once);
+      document.addEventListener('keydown', once);
+    });
+  }
+  function vozPara(slide) {
+    if (!voz) return;
+    if (vozT) { clearTimeout(vozT); vozT = null; }
+    if (slide && slide.hasAttribute('data-audio')) {
+      vozT = setTimeout(function () { voz.currentTime = 0; arrancarVoz(); }, 4000);
+    } else if (!voz.paused || voz.currentTime) {
+      voz.pause(); voz.currentTime = 0;
+    }
+  }
+
   function setActive(i) {
     if (i === cur || i < 0 || i >= total) return;
     cur = i;
+    vozPara(slides[i]);
     dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
     navNo.textContent = pad(i + 1);
     navT.textContent = slides[i].dataset.title || '';

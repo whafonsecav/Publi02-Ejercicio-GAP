@@ -16,7 +16,7 @@ Doble clic en **`index.html`**. Los dos videos están **dentro de la carpeta**, 
 | **02** | **¿Qué es GAP?** | Qué vende · de dónde viene · qué significa el nombre · con quién compite. Más la línea de tiempo animada de cinco hitos |
 | **03** | **Los dos videos** | 2003 a la izquierda (marco rosado), 2025 a la derecha (marco verde), **del mismo alto**. En cada cuadro: el video, al lado lo que dice esa pieza, y debajo **las conexiones con la marca** —cinco en el de 2003, cuatro en el de 2025—. El botón del pie abre la **ficha técnica**: quién dirigió, quién es Kelis y qué es el R&B, de dónde salió KATSEYE, premios y cifras. Abajo de todo, cómo se juntan las dos |
 | **04** | **Atributos · Beneficios · Creencias** | **Seis de cada uno.** Cada tarjeta trae una frase que lo explica; al tocarla se abre la ficha completa |
-| **05** | **Frase de posicionamiento** | La frase citada, escribiéndose en tiempo real (unos 11 segundos). La firma va dentro de la cita |
+| **05** | **Frase de posicionamiento** | La frase citada, escribiéndose en tiempo real (unos 11 segundos). A los **4 segundos de llegar entra la voz en off** (`assets/audio/Voz.mp3`, 35 s), que se corta sola al pasar de lámina. La firma va dentro de la cita |
 | **06** | **Cierre** | Gracias |
 
 ## Navegar
@@ -57,9 +57,9 @@ El video se pausa solo al cerrar la ventana o al cambiar de lámina.
 
 **Grammy 2026: nominadas, no ganaron.** Mejor Artista Nuevo y Mejor Interpretación Pop de Dúo o Grupo por «Gabriela». Ganaron Olivia Dean y Cynthia Erivo con Ariana Grande. Sí cantaron en la ceremonia.
 
-**Coachella no es un premio.** Es un festival en California; estuvieron en el cartel de 2026.
+**Coachella** es un festival de música en California; estuvieron en el cartel de 2026.
 
-**La gira son arenas** — recintos techados de 10.000 a 20.000 personas. El *Wildworld Tour*: del 1 de septiembre de 2026 en Dublín al 27 de noviembre en Ciudad de México, por 10 países.
+**La gira.** El *Wildworld Tour*: **31 conciertos en 10 países**, en coliseos cubiertos de 10.000 a 20.000 personas. Del 1 de septiembre de 2026 en Dublín al 27 de noviembre en Ciudad de México, por Irlanda, Reino Unido, Francia, Países Bajos, Alemania, Bélgica, Dinamarca, Estados Unidos, Canadá y México.
 
 ---
 
@@ -86,6 +86,7 @@ El video se pausa solo al cerrar la ventana o al cambiar de lámina.
 ├── css/style.css       · Sistema de diseño
 ├── js/app.js           · Escalado, navegación, reproductores, fichas, animaciones
 └── assets/
+    ├── audio/          · La voz en off de la lámina 5
     ├── img/            · Logos del Politécnico y las carátulas de los videos
     └── video/          · Los dos videos, en 720p para web
 ```
