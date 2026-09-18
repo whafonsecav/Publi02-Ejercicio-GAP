@@ -1569,3 +1569,74 @@ p.tag,p.tag b{color:var(--tinta)!important}
 .s26 .anal .vmeta > div{padding:3px 0}
 .s26 .anal .vmeta dd{font-size:12.5px}
 .s26 .ticker{margin:6px 0 5px}
+
+
+/* ══════════════════════════════════════════════════════════
+   EL CICLORAMA REAL · la foto del estudio sin fin
+   La foto va debajo; la trama de tejido queda encima.
+   ══════════════════════════════════════════════════════════ */
+:root{--foto:url("../../assets/fondo/fondo-web.jpg")}
+
+body,.fit{background:#EDEAE3}
+
+.slide,.bg-a,.bg-b,.bg-c,.bg-d{
+  background:
+    /* lavado cálido: deja ver el cuarto, pero separa las tarjetas */
+    linear-gradient(180deg,
+      rgba(250,248,244,.30) 0%,
+      rgba(244,241,235,.20) 40%,
+      rgba(233,228,218,.46) 100%),
+    /* sombra suave en las dos esquinas, para que no quede plano */
+    radial-gradient(58% 92% at -6% 50%, rgba(120,106,86,.10), transparent 62%),
+    radial-gradient(58% 92% at 106% 50%, rgba(120,106,86,.09), transparent 62%),
+    var(--foto) center 44% / cover no-repeat,
+    #F4F2ED;
+  color:var(--tinta);
+}
+/* la trama de tejido, encima de la foto */
+.tw::before{
+  background-image:
+    repeating-linear-gradient(90deg, rgba(11,36,80,.030) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg,  rgba(11,36,80,.024) 0 1px, transparent 1px 3px);
+  opacity:.85;
+}
+/* sobre blanco casi puro, las tarjetas necesitan borde y sombra más firmes */
+:root{
+  --linea:rgba(11,36,80,.14);
+  --sombra:0 1px 2px rgba(74,62,46,.06), 0 14px 32px -18px rgba(74,62,46,.42);
+}
+
+/* ══════════════════════════════════════════════════════════
+   LEGIBILIDAD · restos del tema oscuro de la versión 1
+   (11 casos medidos por debajo de 3.2:1 de contraste)
+   ══════════════════════════════════════════════════════════ */
+/* 1 · negritas que quedaron blancas sobre tarjeta blanca */
+.atr-box p b, .ef-box p b, .car-cd p b, .qt p b, .qtext b,
+.versus .sd p b, .vsay b, .el b, .tnode b, .era-hd b, .vcrew b,
+.modal .mb p b, .modal .mb b, .antesbox p b{color:var(--tinta)}
+.atr-head h4, .ef-head h4{color:var(--tinta)}
+.vmeta dd{color:var(--tinta)}
+
+/* 2 · el lima de pantalla no se ve sobre claro: se usa el lima oscuro */
+.modal h3 .hl, .modal .hl, .antesbox .hl,
+.mf .nvb, .nvc i, .modal .mf, .modal .mf span{color:var(--lime-d)}
+.mf .nvb{border-color:rgba(74,122,0,.34)}
+
+/* 3 · datos de la portada y avisos */
+.inst div{color:var(--tinta-2)}
+.warn{color:#9A4E00;border-color:rgba(154,78,0,.30);background:rgba(154,78,0,.07)}
+
+/* 4 · marcas de la comparación: fondo suave y letra oscura */
+b.mk{background:rgba(196,34,89,.14);color:#9E1745;border-radius:4px;padding:0 3px;font-weight:700}
+b.ok{background:rgba(74,122,0,.16);color:#3A6100;border-radius:4px;padding:0 3px;font-weight:700}
+.tcol.ant,.tcol.act{background:#FFFDFA;color:var(--tinta);border:1px solid var(--linea)}
+.tcol p,.tcol .tsig{color:var(--tinta)}
+.tcol .tlab{color:var(--tinta-2)}
+
+/* 5 · resaltado dentro de una negrita sobre color */
+
+
+/* 6 · el resaltado del encabezado de un modal sin color propio */
+.modal .mh h3 .hl{color:var(--gc,var(--lime-d))}
+/* 7 · resaltado dentro del recuadro de lavado cian: cian oscuro, no blanco */
+.ob.ae b .hl, .ob.ae .hl, .ob.ae b.hl{color:var(--cyan-d);font-weight:800}
