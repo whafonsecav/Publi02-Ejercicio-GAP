@@ -1649,8 +1649,6 @@ b.ok{background:rgba(74,122,0,.16);color:#3A6100;border-radius:4px;padding:0 3px
 .qstack .v-old{position:absolute;inset:0;opacity:0;transform:translateY(8px);pointer-events:none}
 .qstack.old .v-now{opacity:0;transform:translateY(-8px);pointer-events:none}
 .qstack.old .v-old{opacity:1;transform:none;pointer-events:auto}
-.qstack .v-old{font-size:.94em;color:var(--tinta-2)}
-.qstack .v-old b:not(.mk):not(.sig){color:var(--tinta-2)}
 
 .swaprow{display:flex;align-items:center;gap:16px;margin-top:16px}
 .swapnote{font-size:13.5px;line-height:1.4;color:var(--tinta-2);flex:1}
@@ -1814,3 +1812,60 @@ b.ok{background:rgba(74,122,0,.16);color:#3A6100;border-radius:4px;padding:0 3px
 [data-title="Pregunta D"] .qhead{margin-bottom:0}
 [data-title="Pregunta D"] .capa .cfte{margin-top:6px;padding-top:5px}
 [data-title="Pregunta D"] .bars{gap:6px}
+
+
+/* ══════════════════════════════════════════════════════════
+   INTERRUPTOR FLOTANTE · mantener presionado cambia la vista
+   en el mismo sitio, con el mismo formato. Nada de modales.
+   ══════════════════════════════════════════════════════════ */
+.stack{position:relative}
+.stack > .v-now,.stack > .v-old{transition:opacity .26s ease}
+.stack > .v-old{position:absolute;inset:0;opacity:0;pointer-events:none}
+.stack.old > .v-now{opacity:0;pointer-events:none}
+.stack.old > .v-old{opacity:1;pointer-events:auto}
+
+.flip{position:absolute;right:30px;bottom:22px;z-index:6;
+  display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:999px;
+  font:inherit;font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--tinta-2);
+  background:rgba(255,253,250,.88);border:1px solid var(--linea);
+  box-shadow:0 2px 12px -5px rgba(74,62,46,.38);cursor:pointer;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  opacity:0;transform:translateY(7px);
+  transition:opacity .5s ease,transform .5s ease,background .18s,color .18s,border-color .18s}
+.slide.on .flip{opacity:1;transform:none;transition-delay:1.5s}
+.flip .ic{font-size:14px}
+.flip .fring{position:absolute;inset:-3px;border-radius:999px;border:2px solid var(--lime-d);
+  opacity:0;pointer-events:none;animation:latido 2.8s ease-in-out infinite}
+.flip:hover{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.flip.activo{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.flip.activo .fring{animation:none;opacity:0}
+.flip.activo .ftx::after{content:" \2713"}
+
+/* la version inicial se anuncia sin estorbar */
+.stack.old::after{content:"Versi\00f3n inicial \00b7 agosto de 2025";
+  position:absolute;right:0;top:-26px;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;font-weight:800;color:var(--pink-d)}
+
+/* la ficha tecnica, mas alta para llenar la columna */
+.acol .vmeta{margin-top:14px}
+.acol .vmeta > div{padding:11px 0}
+.acol .vmeta dd{font-size:14.5px}
+.acol .vmeta dt{font-size:11px}
+
+/* los comentarios, ahora dentro de la columna ancha */
+.acol.wide .ticker{margin-top:14px}
+
+
+/* colaboraciones que traen video */
+.chip{position:relative}
+.chip.conv{padding-right:30px;border-color:rgba(11,36,80,.26)}
+.chip .cplay{position:absolute;right:9px;top:50%;transform:translateY(-50%);
+  width:17px;height:17px;border-radius:50%;display:grid;place-items:center;
+  background:var(--tinta);color:#fff;font-size:8px}
+.chip.conv:hover .cplay{background:var(--lime-d)}
+#m-colab .ytbox{margin-bottom:15px}
+#m-colab .ytbox:empty{display:none}
+.panel.chico{max-width:720px}
+[data-title="Pregunta D"] .chip{padding:5px 10px}
+[data-title="Pregunta D"] .chip b{font-size:13px}
+[data-title="Pregunta D"] .chipbox{gap:6px}

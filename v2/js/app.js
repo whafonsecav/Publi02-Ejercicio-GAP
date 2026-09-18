@@ -578,6 +578,14 @@
       poner('cb-p', c.dataset.p);
       poner('cb-c', c.dataset.c);
       poner('cb-n', c.dataset.n);
+      var yb = document.getElementById('cb-yt');
+      if (yb) {
+        yb.innerHTML = c.dataset.yt
+          ? '<iframe src="https://www.youtube-nocookie.com/embed/' + c.dataset.yt +
+            '?rel=0&modestbranding=1" title="' + c.dataset.a +
+            '" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'
+          : '';
+      }
     });
   });
 })();
@@ -599,6 +607,46 @@
   var vaciar = function () { caja.innerHTML = ''; };
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') vaciar(); });
   var m = document.getElementById('m-video');
+  if (m) { var x = m.querySelector('.xbtn'); if (x) x.addEventListener('click', vaciar); }
+  var sc = document.getElementById('scrim');
+  if (sc) sc.addEventListener('click', vaciar);
+})();
+
+
+/* ---- interruptor flotante: mantener presionado cambia la vista en sitio ---- */
+(function () {
+  document.querySelectorAll('[data-flip]').forEach(function (btn) {
+    var caja = document.getElementById(btn.dataset.flip);
+    if (!caja) return;
+    var ver = function (e) {
+      if (e) e.preventDefault();
+      caja.classList.add('old');
+      btn.classList.add('activo');
+    };
+    var quitar = function () {
+      caja.classList.remove('old');
+      btn.classList.remove('activo');
+    };
+    btn.addEventListener('pointerdown', ver);
+    ['pointerup', 'pointerleave', 'pointercancel', 'blur'].forEach(function (ev) {
+      btn.addEventListener(ev, quitar);
+    });
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === ' ' || e.key === 'Enter') ver(e);
+    });
+    btn.addEventListener('keyup', quitar);
+    btn.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  });
+})();
+
+
+/* cortar el video de la ficha de colaboracion al cerrarla */
+(function () {
+  var yb = document.getElementById('cb-yt');
+  if (!yb) return;
+  var vaciar = function () { yb.innerHTML = ''; };
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') vaciar(); });
+  var m = document.getElementById('m-colab');
   if (m) { var x = m.querySelector('.xbtn'); if (x) x.addEventListener('click', vaciar); }
   var sc = document.getElementById('scrim');
   if (sc) sc.addEventListener('click', vaciar);
