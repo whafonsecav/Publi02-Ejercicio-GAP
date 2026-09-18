@@ -1214,3 +1214,108 @@ p.tag,p.tag b{color:var(--tinta)!important}
 .cov-bot{margin-top:10px}
 .who{padding:8px 18px 8px 9px}
 .dancers{transform:scale(.9);transform-origin:center}
+
+
+/* ══ El ciclorama ═══════════════════════════════
+   El cuarto de Gap no tiene una línea donde acaba la pared: el piso sube
+   en curva hasta volverse pared. Se cambia el corte duro por una caída
+   continua, más una luz alta y sombra en los dos rincones.
+   ═════════════════════════════════════════ */
+.slide,.bg-a,.bg-b,.bg-c,.bg-d{
+  background:
+    radial-gradient(86% 62% at 50% 2%,  rgba(255,255,255,.92) 0%, rgba(255,255,255,0) 68%),
+    radial-gradient(58% 104% at -4% 58%, rgba(122,108,88,.11) 0%, rgba(122,108,88,0) 68%),
+    radial-gradient(58% 104% at 104% 58%, rgba(122,108,88,.10) 0%, rgba(122,108,88,0) 68%),
+    radial-gradient(150% 62% at 50% 128%, rgba(120,106,86,.16) 0%, rgba(120,106,86,0) 62%),
+    linear-gradient(180deg, #F7F5F1 0%, #F3F0EA 40%, #EFEBE4 72%, #EBE6DD 100%);
+}
+.fit,body{background:#EBE6DD}
+.nav{background:#EDE8E0;border-top:1px solid rgba(11,36,80,.10)}
+
+.acts.four{grid-template-columns:repeat(4,1fr)}
+.act.t1 .sw{background:#4A6D9E}
+.act.t2 .sw{background:linear-gradient(90deg,#9FC0E6,#2F5A9E)}
+.act.t3 .sw{background:linear-gradient(90deg,#2F5A9E 0 40%,#2B2B2B 40% 100%)}
+.act.t4 .sw{background:conic-gradient(#2F5A9E,#2B2B2B,#5C4A33,#2F5A9E)}
+.acts.four .act b{font-size:14px}
+.acts.four .act p{font-size:12px;line-height:1.34}
+
+
+/* ══ La frase: cada nivel con su color, igual que la leyenda ══ */
+.qtext{font-size:30px;line-height:1.5;letter-spacing:-.005em}
+.qtext .ch{color:inherit}
+.qtext .n-a,.qtext .n-a .ch{color:var(--lime-d)!important;font-weight:600}
+.qtext .n-b,.qtext .n-b .ch{color:var(--cyan-d)!important;font-weight:600}
+.qtext .n-c,.qtext .n-c .ch{color:var(--pink-d)!important;font-weight:600}
+.qtext > b:first-child,.qtext > b:first-child .ch{color:var(--tinta)!important;font-weight:700}
+.qtext .sig,.qtext .sig .ch{color:var(--tinta)!important}
+.qtext .sig{display:block;margin-top:18px;font-family:var(--ff-d);font-size:38px;letter-spacing:.01em}
+.qtext .sig .hl,.qtext .sig .hl .ch{color:var(--lime-d)!important}
+.qlegend span{padding:7px 15px;border-radius:40px;font-size:13px;font-weight:700;
+  background:#FFFDFA;border:1px solid var(--linea);box-shadow:var(--sombra)}
+.qlegend .g-fab{color:var(--lime-d);border-left:4px solid var(--lime-d)}
+.qlegend .g-tec{color:var(--cyan-d);border-left:4px solid var(--cyan-d)}
+.qlegend .g-int{color:var(--pink-d);border-left:4px solid var(--pink-d)}
+
+
+/* ══ Gráficas de barras ═══════════════════════════ */
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:17px}
+.chart{padding:18px 20px;border-radius:18px;background:#FFFDFA;border:1px solid var(--linea);
+  box-shadow:var(--sombra);display:flex;flex-direction:column}
+.chl{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;
+  color:var(--tinta-2);margin-bottom:10px}
+.chl.mt{margin-top:14px}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:132px 1fr 72px;align-items:center;gap:10px}
+.bar .bl{font-size:13px;color:var(--tinta-2);text-align:right}
+.bar.on .bl b{color:var(--tinta);font-size:15px}
+.bar .bt{height:17px;border-radius:5px;background:rgba(11,36,80,.06);overflow:hidden}
+.bar .bt i{display:block;height:100%;border-radius:5px;background:var(--tinta);
+  transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,1,.3,1)}
+.on .bar .bt i{transform:scaleX(1)}
+.bar .bt i.s2{background:var(--cyan-d)} .bar .bt i.s3{background:#8A8378}
+.bar .bt i.g1{background:#9AA3B2} .bar .bt i.g2{background:var(--tinta)}
+.bar .bt i.g3{background:#9AA3B2} .bar .bt i.g4{background:#BFC5CF}
+.bar .bv{font-size:13px;font-weight:700;color:var(--tinta)}
+.chnote{margin-top:12px;font-size:13.5px;line-height:1.45;color:var(--tinta-2)}
+.chnote b{color:var(--tinta)}
+.on .bar:nth-child(1) .bt i{transition-delay:.05s}
+.on .bar:nth-child(2) .bt i{transition-delay:.13s}
+.on .bar:nth-child(3) .bt i{transition-delay:.21s}
+.on .bar:nth-child(4) .bt i{transition-delay:.29s}
+.on .bar:nth-child(5) .bt i{transition-delay:.37s}
+.on .bar:nth-child(6) .bt i{transition-delay:.45s}
+
+.minis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:4px}
+.mini{padding:9px 6px;border-radius:12px;background:rgba(11,36,80,.045);text-align:center}
+.mini b{display:block;font-family:var(--ff-d);font-size:26px;line-height:1;color:var(--tinta)}
+.mini i{display:block;font-style:normal;font-size:10.5px;margin-top:4px;color:var(--tinta-2);line-height:1.2}
+.join.wide2{display:block}
+.colabs{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 9px}
+.colabs span{padding:5px 12px;border-radius:40px;background:#FFFDFA;border:1px solid var(--linea);
+  font-size:13px;font-weight:600;color:var(--tinta)}
+.colnote{font-size:14.5px;line-height:1.45;color:var(--tinta-2)}
+.colnote b{color:var(--tinta)}
+
+/* compactar la lamina D */
+.chart{padding:15px 17px}
+.bars{gap:5px}
+.bar{grid-template-columns:120px 1fr 66px;gap:9px}
+.bar .bt{height:14px}
+.bar .bl,.bar .bv{font-size:12.5px}
+.chnote{margin-top:10px;font-size:12.5px;line-height:1.42}
+.chl{margin-bottom:8px;font-size:10.5px}
+.chl.mt{margin-top:11px}
+.minis{gap:8px}
+.minis.dos{grid-template-columns:1fr 1fr}
+.mini{padding:8px 6px}
+.mini b{font-size:24px}
+.mini.big b{font-size:40px}
+.mini i{font-size:10px}
+.dgrid{gap:18px;margin-bottom:14px}
+.verdict{padding:15px 20px;margin:16px 0 14px}
+.verdict p{font-size:20px}
+.colabs{margin:8px 0 7px;gap:6px}
+.colabs span{padding:4px 11px;font-size:12px}
+.colnote{font-size:13.5px;line-height:1.42}
+.join.wide2 .jh{margin-bottom:4px}
