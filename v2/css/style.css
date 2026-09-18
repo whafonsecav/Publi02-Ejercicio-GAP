@@ -1191,3 +1191,26 @@ p.tag,p.tag b{color:var(--tinta)!important}
 /* la lámina de los dos videos se pasó por 7 px */
 .eras{margin-top:3px}
 .era{padding:9px 13px 9px}
+
+
+/* ── Voces del público ── */
+.voices{margin:10px 0 9px}
+.vlab{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;
+  color:var(--cyan-d);margin-bottom:8px}
+.vrow2{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.vq{padding:11px 13px;border-radius:14px;background:#FFFDFA;border:1px solid var(--linea);
+  box-shadow:var(--sombra);border-top:3px solid var(--cyan-d)}
+.vq.es{border-top-color:var(--pink-d)}
+.vq b{display:block;font-family:var(--ff-d);font-size:26px;line-height:1;color:var(--cyan-d);margin-bottom:5px}
+.vq.es b{color:var(--pink-d)}
+.vq p{font-size:12.5px;line-height:1.36;color:var(--tinta);font-style:italic}
+
+
+/* ── Ajuste fino de encaje ── */
+.cols{margin-top:12px}
+.el{padding:9px 40px 9px 13px}
+.el i{font-size:12px;margin-top:3px}
+.thanks{margin:6px 0}
+.cov-bot{margin-top:10px}
+.who{padding:8px 18px 8px 9px}
+.dancers{transform:scale(.9);transform-origin:center}
