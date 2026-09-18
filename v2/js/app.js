@@ -196,6 +196,7 @@
     if (i === cur || i < 0 || i >= total) return;
     cur = i;
     vozPara(slides[i]);
+    tickersDe(slides[i]);
     dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
     navNo.textContent = pad(i + 1);
     navT.textContent = slides[i].dataset.title || '';
@@ -321,6 +322,32 @@
     });
   });
   function pauseHidden(slide) { if (pv) pv.pause(); }
+
+  /* ── Carrusel de comentarios: cambia cada 4 segundos ──── */
+  document.querySelectorAll('[data-ticker]').forEach(function (tk) {
+    var items = [].slice.call(tk.querySelectorAll('.tkitem'));
+    var dots  = [].slice.call(tk.querySelectorAll('.tkdots i'));
+    if (items.length < 2) return;
+    var i = 0, timer = null;
+    function ir(n) {
+      items[i].classList.remove('on'); if (dots[i]) dots[i].classList.remove('on');
+      i = (n + items.length) % items.length;
+      items[i].classList.add('on');   if (dots[i]) dots[i].classList.add('on');
+    }
+    function arrancar() { if (!timer) timer = setInterval(function () { ir(i + 1); }, 4000); }
+    function parar() { if (timer) { clearInterval(timer); timer = null; } }
+    /* solo corre mientras la lamina esta a la vista */
+    tk.__on = arrancar; tk.__off = parar;
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { parar(); ir(k); arrancar(); }); });
+    tk.addEventListener('mouseenter', parar);
+    tk.addEventListener('mouseleave', arrancar);
+  });
+  function tickersDe(slide) {
+    document.querySelectorAll('[data-ticker]').forEach(function (tk) {
+      if (slide && slide.contains(tk)) { if (tk.__on) tk.__on(); }
+      else if (tk.__off) tk.__off();
+    });
+  }
 
   /* ── Modales ────────────────────────────────────────────── */
   function openModal(id) {

@@ -1319,3 +1319,70 @@ p.tag,p.tag b{color:var(--tinta)!important}
 .colabs span{padding:4px 11px;font-size:12px}
 .colnote{font-size:13.5px;line-height:1.42}
 .join.wide2 .jh{margin-bottom:4px}
+
+
+/* ══ Carrusel de comentarios ═══════════════════════ */
+.ticker{margin:10px 0 9px;padding:13px 18px;border-radius:17px;position:relative;
+  background:#FFFDFA;border:1px solid var(--linea);box-shadow:var(--sombra)}
+.ticker.tk-lime{border-left:5px solid var(--lime-d)}
+.ticker.tk-pink{border-left:5px solid var(--pink-d)}
+.tkl{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;
+  color:var(--tinta-2);margin-bottom:8px}
+.tkbox{position:relative;min-height:62px}
+.tkitem{position:absolute;inset:0;display:flex;align-items:center;gap:16px;
+  opacity:0;transform:translateY(8px);pointer-events:none;
+  transition:opacity .55s ease,transform .55s cubic-bezier(.2,1,.3,1)}
+.tkitem.on{opacity:1;transform:none;pointer-events:auto}
+.tkitem b{flex:none;font-family:var(--ff-d);font-size:38px;line-height:1;min-width:112px}
+.tk-lime .tkitem b{color:var(--lime-d)}
+.tk-pink .tkitem b{color:var(--pink-d)}
+.tkitem p{font-size:17px;line-height:1.38;color:var(--tinta);font-style:italic}
+.tkitem p i{font-style:normal;font-weight:700}
+.tkdots{display:flex;gap:5px;margin-top:9px}
+.tkdots i{width:16px;height:4px;border-radius:3px;background:rgba(11,36,80,.16);cursor:pointer;
+  transition:background .3s,width .3s}
+.tkdots i.on{width:28px}
+.tk-lime .tkdots i.on{background:var(--lime-d)}
+.tk-pink .tkdots i.on{background:var(--pink-d)}
+
+/* ══ Botón y modal de trazabilidad ════════════════ */
+.trace{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:9px 18px;
+  border-radius:40px;cursor:pointer;font:inherit;font-size:13.5px;font-weight:700;
+  color:var(--tinta);background:#FFFDFA;border:1.5px dashed rgba(11,36,80,.3);
+  box-shadow:var(--sombra);transition:background .2s,transform .2s}
+.trace:hover{background:#fff;transform:translateY(-1px)}
+.trace .ic{font-size:16px;color:var(--tinta-2)}
+.tcols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.tcol{padding:16px 18px;border-radius:16px;background:rgba(11,36,80,.035);border:1px solid var(--linea)}
+.tcol.ant{opacity:.9}
+.tcol.act{background:rgba(74,122,0,.06);border-color:rgba(74,122,0,.24)}
+.tlab{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;
+  color:var(--tinta-2);margin-bottom:9px}
+.tcol p{font-size:14px;line-height:1.5;color:var(--tinta-2)}
+.tcol .tsig{margin-top:9px;font-family:var(--ff-d);font-size:19px;color:var(--tinta)}
+.mk{background:rgba(196,34,89,.16);color:var(--pink-d);padding:0 4px;border-radius:4px;
+  text-decoration:line-through;text-decoration-color:rgba(196,34,89,.5)}
+.ok{background:rgba(74,122,0,.16);color:var(--lime-d);padding:0 4px;border-radius:4px}
+.qtext .cierre,.qtext .cierre .ch{color:var(--tinta)!important;font-weight:700}
+
+
+/* ══ Las cuatro redes ═══════════════════════════ */
+.redes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.red{padding:16px 18px;border-radius:18px;background:#FFFDFA;border:1px solid var(--linea);
+  box-shadow:var(--sombra);position:relative}
+.rlogo{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:11px;
+  font-family:var(--ff-d);font-size:15px;color:#fff;margin-bottom:9px}
+.rlogo.ig{background:#C4227A} .rlogo.tk{background:#111} .rlogo.yt{background:#C4302B} .rlogo.sp{background:#1A7F43}
+.red > b{display:block;font-size:19px;color:var(--tinta)}
+.rnum{display:block;font-family:var(--ff-d);font-size:30px;line-height:1.1;color:var(--tinta);margin:2px 0 8px}
+.rbio{font-size:13px;line-height:1.35;color:var(--tinta-2);font-style:italic;
+  padding:7px 10px;border-radius:10px;background:rgba(11,36,80,.045);margin-bottom:9px}
+.rbio.hi{background:rgba(74,122,0,.12);color:var(--lime-d);font-weight:700;font-style:normal}
+.rque{font-size:13.5px;line-height:1.42;color:var(--tinta-2)}
+.rque b{color:var(--tinta)}
+
+.redes{gap:14px;margin-bottom:13px}
+.red{padding:14px 16px}
+.rnum{font-size:27px;margin:2px 0 7px}
+.rbio{padding:6px 9px;margin-bottom:7px;font-size:12.5px}
+.rque{font-size:13px}
