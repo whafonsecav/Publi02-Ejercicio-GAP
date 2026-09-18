@@ -538,3 +538,68 @@
   document.getElementById('elPrev').addEventListener('click', function () { renderEl(elIdx - 1); });
   document.getElementById('elNext').addEventListener('click', function () { renderEl(elIdx + 1); });
 })();
+
+
+/* ---- numeracion consecutiva de las laminas (siempre igual al pie) ---- */
+(function () {
+  var laminas = [].slice.call(document.querySelectorAll('.slide'));
+  laminas.forEach(function (s, i) {
+    var punto = s.querySelector('.kicker .dot');
+    if (punto) punto.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
+  });
+})();
+
+/* ---- mantener presionado: el bloque se cambia a si mismo ---- */
+(function () {
+  document.querySelectorAll('[data-swap]').forEach(function (btn) {
+    var caja = document.getElementById(btn.dataset.swap);
+    if (!caja) return;
+    var ver = function (e) { if (e) e.preventDefault(); caja.classList.add('old'); btn.classList.add('activo'); };
+    var quitar = function () { caja.classList.remove('old'); btn.classList.remove('activo'); };
+    btn.addEventListener('pointerdown', ver);
+    btn.addEventListener('pointerup', quitar);
+    btn.addEventListener('pointerleave', quitar);
+    btn.addEventListener('pointercancel', quitar);
+    btn.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') ver(e); });
+    btn.addEventListener('keyup', quitar);
+    btn.addEventListener('blur', quitar);
+  });
+})();
+
+
+/* ---- fichas de colaboracion ---- */
+(function () {
+  var poner = function (id, txt) { var n = document.getElementById(id); if (n) n.innerHTML = txt; };
+  document.querySelectorAll('.chip[data-a]').forEach(function (c) {
+    c.addEventListener('click', function () {
+      poner('cb-a', c.dataset.a);
+      poner('cb-f', c.dataset.p);
+      poner('cb-f2', c.dataset.f);
+      poner('cb-p', c.dataset.p);
+      poner('cb-c', c.dataset.c);
+      poner('cb-n', c.dataset.n);
+    });
+  });
+})();
+
+/* ---- el anuncio de YouTube, dentro de la presentacion ---- */
+(function () {
+  var caja = document.getElementById('vd-box');
+  if (!caja) return;
+  document.querySelectorAll('.vchip[data-yt]').forEach(function (v) {
+    v.addEventListener('click', function () {
+      var t = document.getElementById('vd-t'), s = document.getElementById('vd-s');
+      if (t) t.innerHTML = v.dataset.vt;
+      if (s) s.innerHTML = v.dataset.vs;
+      caja.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + v.dataset.yt +
+        '?autoplay=1&rel=0&modestbranding=1" title="' + v.dataset.vt +
+        '" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    });
+  });
+  var vaciar = function () { caja.innerHTML = ''; };
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') vaciar(); });
+  var m = document.getElementById('m-video');
+  if (m) { var x = m.querySelector('.xbtn'); if (x) x.addEventListener('click', vaciar); }
+  var sc = document.getElementById('scrim');
+  if (sc) sc.addEventListener('click', vaciar);
+})();
