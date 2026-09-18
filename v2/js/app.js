@@ -323,9 +323,25 @@
   });
   function pauseHidden(slide) { if (pv) pv.pause(); }
 
+  /* ── Mantener presionado para ver la version anterior ── */
+  document.querySelectorAll('[data-antes]').forEach(function (btn) {
+    var capa = document.getElementById('antes-' + btn.dataset.antes);
+    if (!capa) return;
+    var mostrar = function (e) { if (e) e.preventDefault(); capa.classList.add('on'); };
+    var ocultar = function () { capa.classList.remove('on'); };
+    btn.addEventListener('pointerdown', mostrar);
+    btn.addEventListener('pointerup', ocultar);
+    btn.addEventListener('pointerleave', ocultar);
+    btn.addEventListener('pointercancel', ocultar);
+    /* con teclado: la barra o Enter mientras se mantiene */
+    btn.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') mostrar(e); });
+    btn.addEventListener('keyup', ocultar);
+    btn.addEventListener('blur', ocultar);
+  });
+
   /* ── Carrusel de comentarios: cambia cada 4 segundos ──── */
   document.querySelectorAll('[data-ticker]').forEach(function (tk) {
-    var items = [].slice.call(tk.querySelectorAll('.tkitem'));
+    var items = [].slice.call(tk.querySelectorAll('.cmt'));
     var dots  = [].slice.call(tk.querySelectorAll('.tkdots i'));
     if (items.length < 2) return;
     var i = 0, timer = null;

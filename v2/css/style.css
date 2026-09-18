@@ -1386,3 +1386,186 @@ p.tag,p.tag b{color:var(--tinta)!important}
 .rnum{font-size:27px;margin:2px 0 7px}
 .rbio{padding:6px 9px;margin-bottom:7px;font-size:12.5px}
 .rque{font-size:13px}
+
+
+/* ══ Comentarios con pinta de comentario ═════════════ */
+.tkbox{min-height:104px}
+.cmt{position:absolute;inset:0;display:flex;gap:13px;align-items:flex-start;
+  opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .5s ease,transform .5s cubic-bezier(.2,1,.3,1)}
+.cmt.on{opacity:1;transform:none;pointer-events:auto}
+.cav{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--ff-d);font-size:19px;color:#fff;margin-top:2px}
+.cbody{flex:1;min-width:0}
+.cau{display:block;font-size:12.5px;font-weight:700;color:var(--tinta-2);margin-bottom:3px}
+.ctx{font-size:15px;line-height:1.36;color:var(--tinta)}
+.ctr{font-size:13.5px;line-height:1.36;color:var(--tinta-2);margin-top:4px;font-style:italic}
+.ctr b,.ctr i{color:var(--tinta);font-style:normal;font-weight:700}
+.cfoot{display:flex;gap:16px;align-items:center;margin-top:7px}
+.clike,.crep{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;
+  color:var(--tinta-2)}
+.clike .ic,.crep .ic{font-size:14px}
+.tk-lime .clike{color:var(--lime-d)} .tk-pink .clike{color:var(--pink-d)}
+.ticker{padding:15px 20px}
+
+
+/* ══ Botón «mantén presionado» y capa de la versión anterior ══ */
+.antes{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;border-radius:40px;
+  cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;color:var(--tinta);
+  background:#FFFDFA;border:1.5px solid rgba(11,36,80,.22);box-shadow:var(--sombra);
+  margin-bottom:10px;position:relative;user-select:none;-webkit-user-select:none}
+.antes::after{content:'';position:absolute;inset:-4px;border-radius:44px;
+  border:2px solid var(--cyan-d);opacity:0;animation:latido 2.4s ease-in-out infinite;pointer-events:none}
+@keyframes latido{0%,100%{opacity:0;transform:scale(.97)}18%{opacity:.5;transform:scale(1)}40%{opacity:0;transform:scale(1.04)}}
+.antes .ic{font-size:15px;color:var(--cyan-d)}
+.antes:active{background:var(--tinta);color:var(--room)}
+.antes:active .ic{color:var(--room)}
+.antes:active::after{opacity:0;animation:none}
+
+.antesbox{position:absolute;left:56px;right:56px;top:96px;bottom:70px;z-index:40;
+  background:rgba(247,245,241,.985);backdrop-filter:blur(3px);
+  border:1px solid var(--linea);border-radius:20px;box-shadow:0 30px 70px -34px rgba(74,62,46,.5);
+  padding:22px 28px;opacity:0;visibility:hidden;transform:scale(.985) translateY(8px);
+  transition:opacity .3s ease,transform .3s cubic-bezier(.2,1,.3,1),visibility .3s}
+.antesbox.on{opacity:1;visibility:visible;transform:none}
+.ab-hd{display:flex;align-items:baseline;gap:12px;padding-bottom:11px;margin-bottom:14px;
+  border-bottom:2px solid rgba(196,34,89,.25)}
+.ab-hd b{font-family:var(--ff-d);font-size:24px;color:var(--pink-d)}
+.ab-hd span{font-size:14px;color:var(--tinta-2)}
+.ab-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ab-t{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;
+  margin-bottom:9px}
+.ab-t.lime{color:var(--lime-d)} .ab-t.cyan{color:var(--cyan-d)} .ab-t.pink{color:var(--pink-d)}
+.ab-col ul{display:flex;flex-direction:column;gap:7px}
+.ab-col li{font-size:15px;color:var(--tinta);padding:7px 12px;border-radius:10px;
+  background:rgba(11,36,80,.045)}
+.ab-note{margin-top:15px;font-size:14.5px;line-height:1.45;color:var(--tinta-2)}
+.ab-note b{color:var(--pink-d)}
+.ab-frase{font-size:20px;line-height:1.52;color:var(--tinta-2)}
+.ab-sig{margin-top:14px;font-family:var(--ff-d);font-size:30px;color:var(--tinta)}
+.frasebox{top:120px}
+
+/* compactar las laminas de analisis con la ficha de 9 filas */
+.anal .vmeta{gap:3px;margin-top:10px}
+.anal .vmeta > div{grid-template-columns:104px 1fr;gap:9px;padding-bottom:3px}
+.anal .vmeta dt{font-size:10px}
+.anal .vmeta dd{font-size:13.5px;line-height:1.2}
+.tkbox{min-height:88px}
+.ticker{padding:12px 17px;margin:8px 0 7px}
+.cav{width:36px;height:36px;font-size:16px}
+.ctx{font-size:14px;line-height:1.34}
+.ctr{font-size:12.5px;margin-top:3px}
+.cfoot{margin-top:5px;gap:14px}
+.clike,.crep{font-size:11.5px}
+.tkl{margin-bottom:6px}
+.tkdots{margin-top:6px}
+.acts .act{padding:8px 11px}
+.acts.four .act p{font-size:11.5px;line-height:1.3}
+.acts .act b{font-size:13px;margin-bottom:3px}
+.acts .act .sw{height:7px;margin-bottom:6px}
+.acts{gap:9px;margin-bottom:9px}
+.anal .ob{padding:5px 1px}
+.anal .ob p{font-size:12.5px;line-height:1.34}
+.anal{margin-top:9px;gap:26px}
+
+.anal .crl{margin-bottom:6px}
+.mem.m3{gap:5px;margin-bottom:7px}
+.mem > div{padding:2px 7px}
+.join .jgrid{gap:9px}
+.join .jc{padding:7px 10px}
+.join{padding:8px 15px 9px}
+.creds{margin-top:7px;padding:8px 12px}
+.creds p{font-size:11.5px;line-height:1.42}
+
+
+/* ══ Pie de página: legible ════════════════════════ */
+.nav{background:var(--tinta);border-top:0;color:rgba(255,255,255,.92)}
+.nav a,.nav button,.nav-t,.nav-c,.nav span,.nav i,.nav b{color:rgba(255,255,255,.92)}
+.nav .nav-no,.nav b{color:var(--lime)}
+.nav-t{font-weight:700;letter-spacing:.1em}
+.nav .dots i{background:rgba(255,255,255,.3)}
+.nav .dots i.on{background:var(--lime)}
+.nav button{border-color:rgba(255,255,255,.35)!important;background:rgba(255,255,255,.08)!important}
+.nav button:hover{background:rgba(255,255,255,.2)!important}
+.nav button:disabled{opacity:.3}
+#pl{background:var(--lime)}
+.nav-c span{opacity:.75;font-size:11px}
+
+/* ══ Ficha técnica: caja con aire ══════════════════ */
+.anal .vmeta{background:#FFFDFA;border:1px solid var(--linea);border-radius:16px;
+  box-shadow:var(--sombra);padding:14px 18px;gap:0}
+.anal .vmeta > div{padding:7px 0;border-bottom:1px solid rgba(11,36,80,.08)}
+.anal .vmeta > div:last-child{border-bottom:0;padding-bottom:0}
+.anal .vmeta > div:first-child{padding-top:0}
+.anal .vmeta dt{font-size:9.5px;letter-spacing:.14em}
+.anal .vmeta dd{font-size:14px}
+
+/* ══ Lámina de la marca: rematar el diseño ═══════════ */
+.versus{gap:14px;align-items:stretch}
+.versus .sd{border-radius:18px;padding:16px 20px;display:flex;flex-direction:column;justify-content:center}
+.versus .sd:nth-of-type(1){background:rgba(196,34,89,.05);border-color:rgba(196,34,89,.22)}
+.versus .sd:nth-of-type(2){background:rgba(74,122,0,.05);border-color:rgba(74,122,0,.22)}
+.versus .vs{background:var(--tinta)!important;color:var(--room)!important;
+  box-shadow:0 6px 18px -8px rgba(11,36,80,.5)}
+.tline .tnode .yr{background:var(--tinta);color:#fff;border-radius:11px;padding:7px 4px;
+  font-family:var(--ff-d);letter-spacing:.02em;box-shadow:var(--sombra)}
+.tline .tnode{padding:0 6px}
+.tline .tnode .dot{background:var(--lime-d);box-shadow:0 0 0 4px rgba(63,104,0,.14)}
+.tline .tnode b{color:var(--tinta)}
+.cardgrid > div,.brandgrid > div{background:#FFFDFA;border:1px solid var(--linea);
+  border-radius:16px;padding:16px 18px;box-shadow:var(--sombra)}
+
+/* ══ Último ajuste de encaje ════════════════════ */
+.acts.four .act p{font-size:11px}
+.anal .ob p{font-size:12px}
+.creds p{font-size:11px}
+.tkbox{min-height:84px}
+.ctx{font-size:13.5px}
+
+.anal .vmeta{padding:11px 15px}
+.anal .vmeta > div{padding:4px 0}
+.anal .vmeta dd{font-size:13px}
+.anal .vmeta > div{grid-template-columns:98px 1fr}
+
+/* las seis integrantes en una sola fila */
+.anal .mem.m3{grid-template-columns:repeat(6,1fr);gap:5px}
+.anal .mem.m3 > div{flex-direction:column;align-items:flex-start;gap:3px;padding:6px 8px}
+.anal .mem.m3 .av{width:22px;height:22px;font-size:11px}
+.anal .mem.m3 b{font-size:12px}
+.anal .mem.m3 i{font-size:9.5px;margin-top:1px;line-height:1.15}
+.anal .join .jc{padding:6px 9px}
+.anal .join .jp{font-size:11px}
+
+.anal{grid-template-columns:398px 1fr}
+.tkbox{min-height:70px}
+.cav{width:32px;height:32px;font-size:14px}
+.ctx{font-size:12.8px;line-height:1.32}
+.ctr{font-size:11.5px;margin-top:2px}
+.cfoot{margin-top:4px}
+.ticker{padding:10px 15px;margin:7px 0 6px}
+.tkl{font-size:9.5px;margin-bottom:5px}
+.tkdots{margin-top:5px}
+.tkdots i{height:3px}
+.join .jh{gap:10px}
+.join .jh p{font-size:12.5px}
+.join .jh b{font-size:14px}
+
+.anal .obs .ob:last-child{padding-bottom:0}
+.anal .acts{margin-bottom:7px}
+.anal .join{padding:7px 14px 8px}
+
+/* la lamina de 2026 lleva un bloque mas que la de 2025: se compensa aqui */
+.slide[data-title="La segunda campa f1a"] .anal{grid-template-columns:352px 1fr;gap:22px}
+.slide[data-title="La segunda campa f1a"] .acts .act p{font-size:10.5px;line-height:1.28}
+.slide[data-title="La segunda campa f1a"] .anal .ob p{font-size:11.5px;line-height:1.3}
+.slide[data-title="La segunda campa f1a"] .anal .vmeta{padding:9px 13px}
+.slide[data-title="La segunda campa f1a"] .anal .vmeta > div{padding:3px 0}
+.slide[data-title="La segunda campa f1a"] .anal .vmeta dd{font-size:12.5px}
+
+.s26 .anal{grid-template-columns:352px 1fr;gap:22px}
+.s26 .acts .act p{font-size:10.5px;line-height:1.28}
+.s26 .anal .ob p{font-size:11.5px;line-height:1.3}
+.s26 .anal .vmeta{padding:9px 13px}
+.s26 .anal .vmeta > div{padding:3px 0}
+.s26 .anal .vmeta dd{font-size:12.5px}
+.s26 .ticker{margin:6px 0 5px}
