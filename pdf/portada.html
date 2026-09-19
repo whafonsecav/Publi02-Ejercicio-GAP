@@ -3,90 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <title>GAP · Posicionamiento de marca · Publicidad 2</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+<!-- Las fuentes van incrustadas en el archivo: el PDF no depende de internet -->
+<link rel="stylesheet" href="fuentes.css">
 <style>
+  /* Sin transparencias ni sombras: todo color plano, para que cualquier
+     lector de PDF lo dibuje de una sola pasada y abra al instante. */
   @page { size: A4 landscape; margin: 0 }
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  *{margin:0;padding:0;box-sizing:border-box;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
 
   :root{
     --tinta:#0B2450;
     --tinta-2:#4A5975;
     --lime-d:#4A7A00;
-    --linea:rgba(11,36,80,.14);
+    --linea:#D4D6DA;
+    --papel:#FFFDFA;
   }
 
   html,body{width:297mm;height:210mm}
   body{
-    font-family:'Space Grotesk',system-ui,sans-serif;
+    font-family:'Space Grotesk',Arial,sans-serif;
     color:var(--tinta);
-    background:
-      linear-gradient(180deg, rgba(252,251,248,.10) 0%, rgba(246,244,239,.03) 45%, rgba(228,222,211,.30) 100%),
-      url("../assets/fondo/fondo-web.jpg") center 44% / cover no-repeat,
-      #F4F2ED;
+    background:url("fondo.jpg") center 44% / cover no-repeat #F4F2ED;
     display:flex; flex-direction:column;
     padding:13mm 16mm 11mm;
-    position:relative;
-    overflow:hidden;
+    position:relative; overflow:hidden;
   }
 
-  /* la cinta de color de la presentación */
-  .strip{position:absolute;top:0;left:0;right:0;height:4px;
-    background:linear-gradient(90deg,#0B2450 0%,#2F5A9E 22%,#5C87C9 40%,#CBFF3D 62%,#FF9AC1 82%,#FF6B9D 100%)}
+  /* la cinta de color, en bloques planos */
+  .strip{position:absolute;top:0;left:0;right:0;height:4px;display:flex}
+  .strip i{flex:1}
+  .strip i:nth-child(1){background:#0B2450}
+  .strip i:nth-child(2){background:#2F5A9E}
+  .strip i:nth-child(3){background:#5C87C9}
+  .strip i:nth-child(4){background:#CBFF3D}
+  .strip i:nth-child(5){background:#FF9AC1}
+  .strip i:nth-child(6){background:#FF6B9D}
 
-  /* ── encabezado ── */
   header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
   .inst{display:flex;align-items:center;gap:11px}
   .inst img{height:15mm;width:auto}
   .inst div{font-size:9.6pt;line-height:1.3;color:var(--tinta-2);font-weight:500}
   .inst div b{display:block;color:var(--tinta);font-weight:700}
-  .crs{text-align:right;font-size:9.6pt;line-height:1.45;color:var(--tinta-2);font-weight:500;padding-top:2mm}
+  .crs{text-align:right;font-size:9.6pt;line-height:1.45;color:var(--tinta-2);
+    font-weight:500;padding-top:2mm}
   .crs b{color:var(--tinta);font-weight:700}
 
-  /* ── centro ── */
-  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;gap:0}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center}
   .gapbox{display:inline-block;background:var(--tinta);color:#fff;
-    font-family:'Anton',sans-serif;font-size:19pt;letter-spacing:.14em;
+    font-family:'Anton',Arial,sans-serif;font-size:19pt;letter-spacing:.14em;
     padding:2.4mm 7mm;border-radius:2mm;margin-bottom:5mm}
-  h1{font-family:'Anton',sans-serif;font-weight:400;line-height:.92;
+  h1{font-family:'Anton',Arial,sans-serif;font-weight:400;line-height:.92;
     font-size:49pt;letter-spacing:.005em;color:var(--tinta);text-transform:uppercase}
   h1 .l2{color:var(--lime-d)}
   .tag{margin-top:5mm;font-size:11.4pt;line-height:1.5;color:var(--tinta-2);max-width:210mm}
   .tag b{color:var(--tinta);font-weight:700}
 
-  /* ── bailarines quietos ── */
   .dancers{display:flex;align-items:flex-end;justify-content:center;gap:2.5mm;
-    margin:7mm 0 6mm;color:var(--tinta);opacity:.26}
+    margin:7mm 0 6mm;color:#B9BECB}
   .dancers svg{width:15mm;height:21mm;stroke:currentColor;fill:none;
     stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
 
-  /* ── botón ── */
   .cta{display:inline-flex;align-items:center;gap:3.5mm;text-decoration:none;
     background:var(--tinta);color:#fff;border-radius:99mm;
-    padding:4.6mm 12mm;font-size:13pt;font-weight:700;letter-spacing:.01em;
-    box-shadow:0 2mm 6mm -2mm rgba(11,36,80,.45)}
-  .cta .ar{font-family:'Anton',sans-serif;font-size:15pt;line-height:1}
+    padding:4.6mm 12mm;font-size:13pt;font-weight:700;letter-spacing:.01em}
+  /* la flecha va dibujada, no como carácter: ninguna fuente la convierte en Type3 */
+  .cta svg{width:5.2mm;height:3.4mm;stroke:#fff;fill:none;stroke-width:2.6;
+    stroke-linecap:round;stroke-linejoin:round}
   .url{margin-top:3.2mm;font-size:9.6pt;color:var(--tinta-2);letter-spacing:.01em}
   .url a{color:var(--tinta-2);text-decoration:none}
 
-  /* ── pie: integrantes ── */
   footer{display:flex;flex-direction:column;align-items:center;gap:3mm}
   .eq-lab{font-size:8.4pt;letter-spacing:.2em;text-transform:uppercase;
     font-weight:700;color:var(--tinta-2)}
   .team{display:flex;justify-content:center;gap:5mm;flex-wrap:wrap}
   .who{display:inline-flex;align-items:center;gap:2.6mm;
-    background:rgba(255,253,250,.92);border:1px solid var(--linea);
-    border-radius:99mm;padding:2.1mm 5.5mm;font-size:10.4pt;font-weight:600;color:var(--tinta)}
-  .who .av{width:6.6mm;height:6.6mm;border-radius:50%;display:inline-grid;place-items:center;
-    color:#fff;font-family:'Anton',sans-serif;font-size:10pt;line-height:1}
+    background:var(--papel);border:1px solid var(--linea);
+    border-radius:99mm;padding:2.1mm 5.5mm;font-size:10.4pt;
+    font-weight:600;color:var(--tinta)}
+  .who .av{width:3.2mm;height:3.2mm;border-radius:50%;display:inline-block;flex:none}
 </style>
 </head>
 <body>
-<div class="strip"></div>
+<div class="strip"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
 <header>
   <div class="inst">
-    <img src="../assets/img/politecnico-b.png" alt="Politécnico Grancolombiano">
+    <img src="logo.jpg" alt="Politécnico Grancolombiano">
     <div>Institución Universitaria<b>Politécnico Grancolombiano</b></div>
   </div>
   <div class="crs">
@@ -112,16 +116,16 @@
   </div>
 
   <a class="cta" href="https://whafonsecav.github.io/Publi02-Ejercicio-GAP/v2/">
-    Ver la presentación <span class="ar">&rarr;</span></a>
+    Ver la presentación <svg viewBox="0 0 26 16"><path d="M2 8h21M17 2l6 6-6 6"/></svg></a>
   <p class="url"><a href="https://whafonsecav.github.io/Publi02-Ejercicio-GAP/v2/">whafonsecav.github.io/Publi02-Ejercicio-GAP/v2/</a></p>
 </main>
 
 <footer>
   <span class="eq-lab">Integrantes</span>
   <div class="team">
-    <span class="who"><span class="av" style="background:#4A7A00">W</span>William Fonseca</span>
-    <span class="who"><span class="av" style="background:#C42259">M</span>Mariana Silva</span>
-    <span class="who"><span class="av" style="background:#0A6E92">J</span>Juan Martínez</span>
+    <span class="who"><span class="av" style="background:#4A7A00"></span>William Fonseca</span>
+    <span class="who"><span class="av" style="background:#C42259"></span>Mariana Silva</span>
+    <span class="who"><span class="av" style="background:#0A6E92"></span>Juan Martínez</span>
   </div>
 </footer>
 </body>
