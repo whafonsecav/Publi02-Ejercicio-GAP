@@ -651,3 +651,18 @@
   var sc = document.getElementById('scrim');
   if (sc) sc.addEventListener('click', vaciar);
 })();
+
+
+/* ---- marcar las colaboraciones que traen anuncio ---- */
+(function () {
+  document.querySelectorAll('.chip[data-yt]').forEach(function (c) {
+    if (!c.dataset.yt) return;
+    c.classList.add('conv');
+    if (!c.querySelector('.cplay')) {
+      var s = document.createElement('span');
+      s.className = 'cplay';
+      s.innerHTML = '<svg class="ic"><use href="#i-play"/></svg>';
+      c.appendChild(s);
+    }
+  });
+})();
